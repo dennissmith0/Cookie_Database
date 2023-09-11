@@ -1,7 +1,7 @@
 INSERT INTO Product (product_name, price, description)
 VALUES
-('7-layer Cookie Bar', 3.69, 'A multi-layered bar featuring a graham cracker crust, chocolate chips, butterscotch chips, coconut flakes, chopped walnuts, and a drizzle of sweetened condensed milk'),
-('Thick Chocolate Chip Walnut', 3.69, 'A chewy, golden-brown dough loaded with semi-sweet chocolate chips and crunchy walnuts'),
+('7-layer Cookie Bar', 4.29, 'A multi-layered bar featuring a graham cracker crust, chocolate chips, butterscotch chips, coconut flakes, chopped walnuts, and a drizzle of sweetened condensed milk'),
+('Thick Chocolate Chip Walnut', 3.79, 'A chewy, golden-brown dough loaded with semi-sweet chocolate chips and crunchy walnuts'),
 ('Mint Chocolate Chip', 4, 'Chocolate Cookie with Mint Frosting & Chocolate Chips on top'),
 ('Lemon Tart', 3.15, 'Lemon Frosting, Tart Lemon Powder & Fresh Lime'),
 ('Lemon Raspberry Sugar', 3.15, 'Lemon Frosting & Raspberry Drizzle'),
@@ -26,6 +26,12 @@ VALUES
 ('Pumpkin Chocolate Chip Cookie', 3.50, 'Warm Autumn spices join irresitible cholate chips in a moist pumpkin cookie iced with a brown sugar cinnamon frosting'),
 ('Bookworm Cookie', 3.50, 'Our delectable chocolate cookie is iced with a vanilla cream frosting then topped with Oreo cookie pieces and a gummy worm');
 
+-- Create a temporary table to hold the random data.
+CREATE OR REPLACE TEMPORARY TABLE Temp_OrderData (
+    random_order_id INTEGER,
+    random_product_id INTEGER,
+    random_quantity INTEGER
+);
 
 -- Populate the temporary table with random data
 INSERT INTO Temp_OrderData (random_order_id, random_product_id, random_quantity)
@@ -42,3 +48,6 @@ SELECT
     random_product_id,
     random_quantity
 FROM Temp_OrderData;
+
+-- Drop the temporary table
+DROP TABLE Temp_OrderData;
