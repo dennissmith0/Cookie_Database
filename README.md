@@ -39,11 +39,19 @@ my-cookie-shop-db/
   - **`main_orchestrator.py`**: Orchestrates the execution of other scripts.
 
 ### How to Use
-1. **Database Setup**: Run `create_tables.py` to create initial tables in Snowflake.
-2. **Insert Initial Data**: Run `insert_data.py` to populate the tables with initial data.
-3. **Update Data**: Run `update_data.py` to update data as needed.
-4. **Run Queries**: Run `run_queries.py` to execute SQL queries for analytics.
-5. **Orchestration**: Alternatively, run `main_orchestrator.py` to execute all the above steps in sequence.
+1. **Environment Setup**: Create a `.env` file at the root of the project and add your Snowflake credentials:
+    ```env
+    SNOWFLAKE_ACCOUNT=your_account
+    SNOWFLAKE_USER=your_user
+    SNOWFLAKE_PASSWORD=your_password
+    ```
+    **Note**: Make sure to add `.env` to your `.gitignore` file to keep your credentials secure.
+
+2. **Database Setup**: Run `create_tables.py` to create initial tables in Snowflake.
+3. **Insert Initial Data**: Run `insert_data.py` to populate the tables with initial data.
+4. **Update Data**: Run `update_data.py` to update data as needed.
+5. **Run Queries**: Run `run_queries.py` to execute SQL queries for analytics.
+6. **Orchestration**: Alternatively, run `main_orchestrator.py` to execute all the above steps in sequence.
 
 ## Technology Stack
 - SQL for data definition and manipulation.
