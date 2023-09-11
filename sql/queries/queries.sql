@@ -29,7 +29,6 @@ ORDER BY total_quantity DESC;
 SELECT AVG(price) as average_price FROM Product;
 
 -- Average amount of cookies per order
-SELECT AVG(SUM(quantity))
 
 -- Cookies Below Average Price
 
