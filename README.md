@@ -44,6 +44,9 @@ my-cookie-shop-db/
     SNOWFLAKE_ACCOUNT=your_account
     SNOWFLAKE_USER=your_user
     SNOWFLAKE_PASSWORD=your_password
+    SNOWFLAKE_WAREHOUSE=your_warehouse
+    SNOWFLAKE_DATABASE=your_database
+    SNOWFLAKE_SCHEMA=your_schema
     ```
     **Note**: Make sure to add `.env` to your `.gitignore` file to keep your credentials secure.
 
