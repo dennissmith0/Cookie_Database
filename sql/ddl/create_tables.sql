@@ -23,3 +23,20 @@ CREATE OR REPLACE TABLE Order_Details (
     CONSTRAINT fk_product_id_order FOREIGN KEY(product_id) REFERENCES Product(product_id),
     CONSTRAINT pk_order_details PRIMARY KEY(order_id, product_id)
 );
+
+-- Create a Customer table. Generate random names, count for visits, ... 
+CREATE OR REPLACE TABLE Customers (
+    cust_id NUMBER NOT NULL,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(50),
+    visit_count INT DEFAULT 0,
+    last_visit TIMESTAMP_NTZ,
+    total_spent FLOAT DEFAULT 0,
+    membership_status VARCHAR(50),
+    address VARCHAR(255),
+    phone_number VARCHAR(20),
+    created_at TIMESTAMP_NTZ DEFAULT CURRENT_TIMESTAMP(),
+    updated at TIMESTAMP_NTZ,
+    CONSTRAINT pk_customer_id PRIMARY KEY(customer_id)
+);
