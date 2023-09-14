@@ -37,16 +37,17 @@ def generate_random_customer():
     last_name = fake.last_name()
     email = fake.email()
     visit_count = random.randint(1, 20)
-    last_visit = datetime.now() - timedelta(days=random.randint(0,30))
+    days_ago = random.randint(0, 30)
+    last_visit = (datetime.now() - timedelta(days=days_ago)).strftime('%Y-%m-%d %H:%M:%S')    
     total_spent = round(random.uniform(5.0, 200.0), 2)
     membership_status = random.choice(['Gold', 'Silver', 'Bronze'])
     address = fake.address().replace('\n',', ')
-    phone_number = fake.phone_number()
+    phone_number = fake.numerify('###.###.####')
 
     return (first_name, last_name, email, visit_count, last_visit, total_spent, membership_status, address, phone_number)
 
 # Insert synthetic data into Customer table
-for _ in range(100):
+for _ in range(1000):
     customer_data = generate_random_customer()
     insert_query = f"""
     INSERT INTO Customer (first_name, last_name, email, visit_count, last_visit, total_spent, membership_status, address, phone_number)
@@ -56,6 +57,6 @@ for _ in range(100):
 
 # Commit the transaction
 conn.commit()
-
+ 
 # Close the connection
 conn.close()
